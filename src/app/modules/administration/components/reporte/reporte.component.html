@@ -1,0 +1,38 @@
+<div class="containerTodo backgroundSecundario">
+
+  <app-sidebar class="sidebar"></app-sidebar>
+
+<div class="container mt-3 ">
+    <h1>Reporte de Productos</h1>
+    <button (click)="exportarExcel()" class="btn btn-success mb-3">Exportar a Excel</button>
+
+    <!-- Tabla de productos -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Características</th>
+          <th>Descripción</th>
+          <th>Stock</th>
+          <th>Categoría</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí se generarán las filas de la tablaaa -->
+         @for(producto of listadoProductor; track producto){
+        <tr >
+          <td>{{ producto.id }}</td>
+          <td>{{ producto.nombreProducto }}</td>
+          <td>{{ producto.precio }}</td>
+          <td>{{ producto.caracteristicas }}</td>
+          <td>{{ producto.descripcion }}</td>
+          <td>{{ producto.stock }}</td>
+          <td>{{ producto.categoria?.nombreCategoria}}</td>
+        </tr>
+      }
+      </tbody>
+    </table>
+  </div>
+</div>
